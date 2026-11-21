@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Christopher Foundation website
 
-## Getting Started
+Next.js 16 + React 19 + Tailwind CSS 4 + framer-motion.
 
-First, run the development server:
+## Run it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route           | Page                                            |
+| --------------- | ----------------------------------------------- |
+| `/`             | Home                                            |
+| `/about`        | Mission, values, team                           |
+| `/programs`     | Awareness camps, medical camps + PHC, bionics   |
+| `/stories`      | Christopher's story                             |
+| `/get-involved` | Donate / volunteer / partner + contact form     |
 
-## Learn More
+## Adding your photos
 
-To learn more about Next.js, take a look at the following resources:
+Put the photos in `public/images/` with these names (`.jpg`). Until a photo exists, a styled placeholder is shown.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| File                 | Used for                                   |
+| -------------------- | ------------------------------------------ |
+| `hero.jpg`           | Big home page banner (landscape works best) |
+| `awareness-camp.jpg` | Awareness camps program                    |
+| `medical-camp.jpg`   | Free medical camps program                 |
+| `bionics.jpg`        | Engineered solutions / bionics program     |
+| `christopher.jpg`    | Christopher's portrait                     |
+| `ryan.jpg`           | Ryan's portrait                            |
+| `salome.jpg`         | Salome's portrait                          |
+| `story.jpg`          | Banner on the story page                   |
+| `community.jpg`      | Banner on About / Get Involved             |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To use a different file name or a `.png`, change the paths in `src/lib/site.ts`.
 
-## Deploy on Vercel
+## Editing content
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Contact email, motto, team bios: `src/lib/site.ts`. **The email is a placeholder, so replace it.**
+- Program text: `src/lib/programs.ts`
+- The contact form opens the visitor's email app with the message filled in. To receive submissions directly, connect a form service (e.g. Formspree) in `src/components/ContactForm.tsx`.
